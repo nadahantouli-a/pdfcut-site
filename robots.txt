@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pdfcut.pages.dev/sitemap.xml
+Sitemap: https://cutpdf.pages.dev/sitemap.xml
