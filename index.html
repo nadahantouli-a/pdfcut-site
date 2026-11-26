@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Site address: https://pdfcut.pages.dev (also in robots.txt and sitemap.xml). -->
+<title>مِقَصّ | تقسيم الكتاب المدرسي PDF إلى دروس مجاناً</title>
+<meta name="description" content="أداة مجانية للمعلمين والطلاب: قسّم الكتاب المدرسي PDF تلقائياً إلى دروس، كل درس بملف مستقل باسمه. عربي وإنجليزي، بدون تسجيل، والكتاب لا يغادر جهازك.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://pdfcut.pages.dev/">
+<link rel="alternate" hreflang="ar" href="https://pdfcut.pages.dev/">
+<link rel="alternate" hreflang="x-default" href="https://pdfcut.pages.dev/">
+<meta name="theme-color" content="#0E1430">
+<meta name="application-name" content="مِقَصّ">
+<meta name="apple-mobile-web-app-title" content="مِقَصّ">
+
+<!-- Social sharing (WhatsApp, Facebook, Telegram, X) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="مِقَصّ">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:url" content="https://pdfcut.pages.dev/">
+<meta property="og:title" content="مِقَصّ — قسّم الكتاب المدرسي إلى دروس، كل درس بملف PDF">
+<meta property="og:description" content="أداة مجانية للمعلمين والطلاب. ارفع الكتاب واحصل على كل درس بملف مستقل خلال ثوانٍ، والكتاب لا يغادر جهازك.">
+<meta property="og:image" content="https://pdfcut.pages.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="مِقَصّ: كتاب واحد، كل درس بملفّه">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="مِقَصّ — قسّم الكتاب المدرسي إلى دروس">
+<meta name="twitter:description" content="ارفع الكتاب المدرسي PDF واحصل على كل درس بملف مستقل. مجاني وبدون تسجيل.">
+<meta name="twitter:image" content="https://pdfcut.pages.dev/og-image.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Lalezar&family=Noto+Kufi+Arabic:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- PDF libraries are loaded on demand by app.js, so the first visit stays fast. -->
+<script defer src="engine.js"></script>
+<script defer src="app.js"></script>
+<!-- Anonymous visit + split counter (no cookies, no personal data). Ignores localhost automatically. -->
+<script data-goatcounter="https://pdfcut.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://pdfcut.pages.dev/#app",
+      "name": "مِقَصّ",
+      "alternateName": ["Miqass", "مقص الكتب المدرسية", "تقسيم الكتاب المدرسي إلى دروس"],
+      "url": "https://pdfcut.pages.dev/",
+      "description": "أداة مجانية تعمل في المتصفح لتقسيم الكتاب المدرسي بصيغة PDF إلى دروس ووحدات، كل درس بملف PDF مستقل باسمه. تدعم الكتب العربية والإنجليزية.",
+      "applicationCategory": "EducationalApplication",
+      "applicationSubCategory": "PDF Splitter",
+      "operatingSystem": "Any (web browser)",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ar",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "audience": [
+        { "@type": "EducationalAudience", "educationalRole": "teacher" },
+        { "@type": "EducationalAudience", "educationalRole": "student" }
+      ],
+      "featureList": [
+        "اكتشاف الدروس والوحدات تلقائياً من العناوين أو من الفهرس الجانبي",
+        "دعم الكتب العربية والإنجليزية",
+        "تعديل أسماء الدروس وصفحات البداية مع معاينة فورية",
+        "تنزيل كل الدروس في ملف ZIP واحد",
+        "المعالجة داخل المتصفح بدون رفع الكتاب لأي خادم"
+      ],
+      "image": "https://pdfcut.pages.dev/og-image.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pdfcut.pages.dev/#website",
+      "name": "مِقَصّ",
+      "url": "https://pdfcut.pages.dev/",
+      "inLanguage": "ar"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pdfcut.pages.dev/#faq",
+      "inLanguage": "ar",
+      "mainEntity": [
+        { "@type": "Question", "name": "هل أداة مِقَصّ مجانية؟", "acceptedAnswer": { "@type": "Answer", "text": "نعم، مجانية بالكامل وبدون تسجيل أو حساب، ولا يوجد حد لعدد الكتب." } },
+        { "@type": "Question", "name": "هل يُرفع كتابي إلى الإنترنت؟", "acceptedAnswer": { "@type": "Answer", "text": "لا. الملف يُقرأ ويُقسَّم داخل متصفحك فقط، ولا يُرسَل لأي خادم. نحسب فقط عدد الزيارات وعدد مرات التقسيم بشكل مجهول، بدون أي معلومات عن الكتاب أو عنك." } },
+        { "@type": "Question", "name": "كيف أقسّم الكتاب المدرسي PDF إلى دروس؟", "acceptedAnswer": { "@type": "Answer", "text": "اسحب ملف الكتاب إلى الصفحة، فيكتشف مِقَصّ بدايات الدروس والوحدات تلقائياً. راجع القائمة وعدّل ما تحتاج، ثم اضغط «قُصّ ونزّل» لتحصل على ملف ZIP فيه كل درس بملف PDF مستقل." } },
+        { "@type": "Question", "name": "هل تعمل الأداة على الجوال؟", "acceptedAnswer": { "@type": "Answer", "text": "نعم، تعمل على متصفح الجوال والحاسوب، لكن الكتب الكبيرة جداً تكون أسرع على الحاسوب." } },
+        { "@type": "Question", "name": "ماذا لو كان الكتاب صوراً ممسوحة (سكانر)؟", "acceptedAnswer": { "@type": "Answer", "text": "لن نتمكن من قراءة العناوين تلقائياً، لكن يمكنك تحديد بدايات الدروس يدوياً بسهولة من خلال معاينة الصفحات." } },
+        { "@type": "Question", "name": "الاكتشاف أخطأ في درس، ماذا أفعل؟", "acceptedAnswer": { "@type": "Answer", "text": "اضغط على الدرس، وتنقّل في المعاينة حتى صفحة بدايته الصحيحة، ثم اضغط «يبدأ الدرس هنا»." } },
+        { "@type": "Question", "name": "هل يدعم الكتب الإنجليزية؟", "acceptedAnswer": { "@type": "Answer", "text": "نعم، يتعرّف على Lesson وUnit وChapter، ويستفيد من الفهرس الجانبي (Bookmarks) إن وُجد." } },
+        { "@type": "Question", "name": "هل يغيّر التقسيم جودة صفحات الكتاب؟", "acceptedAnswer": { "@type": "Answer", "text": "لا. تُنسخ الصفحات كما هي بدون ضغط أو إعادة تصوير، فتبقى الصور والنصوص بنفس الجودة الأصلية." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-stage="upload">
+
+<svg class="sprite" aria-hidden="true">
+  <symbol id="i-scissors" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M8.2 15 19 3M15.8 15 5 3"/></g></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></g></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 10l6 6 6-6M4 20h16"/></g></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></g></symbol>
+  <symbol id="i-lang" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></g></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></g></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></g></symbol>
+</svg>
+
+<header class="topbar">
+  <a class="brand" href="./" aria-label="مِقَصّ — الصفحة الرئيسية">
+    <span class="brand-mark"><svg><use href="#i-scissors"/></svg></span>
+    <span class="brand-name">مِقَصّ</span>
+  </a>
+  <nav class="topnav" aria-label="روابط الصفحة">
+    <a href="#how">كيف يعمل</a>
+    <a href="#who">لمن الأداة</a>
+    <a href="#faq">أسئلة شائعة</a>
+  </nav>
+</header>
+
+<main>
+<noscript><p class="noscript">تحتاج أداة مِقَصّ إلى تفعيل JavaScript في المتصفح لتقسيم الكتاب.</p></noscript>
+
+<!-- ============ STAGE 1: UPLOAD ============ -->
+<section class="stage stage-upload" aria-labelledby="heroTitle">
+  <div class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow reveal" style="--d:0">أداة مجانية لتقسيم الكتاب المدرسي PDF إلى دروس</p>
+      <h1 id="heroTitle">كتاب واحد.<br><span class="hl">كل درس</span> بملفّه.</h1>
+      <p class="lede reveal" style="--d:2">ارفع الكتاب المدرسي بصيغة PDF، ومِقَصّ يكتشف الوحدات والدروس تلقائياً ويقصّها لك ملفات PDF مرتّبة بأسمائها، جاهزة للتحميل دفعة واحدة. بدون تسجيل وبدون رفع الكتاب لأي خادم.</p>
+      <ul class="badges reveal" style="--d:3">
+        <li><svg><use href="#i-lock"/></svg> الكتاب لا يغادر جهازك</li>
+        <li><svg><use href="#i-lang"/></svg> عربي وإنجليزي</li>
+        <li><svg><use href="#i-edit"/></svg> تعديل يدوي سهل</li>
+      </ul>
+    </div>
+
+    <div class="drop-wrap reveal" style="--d:2">
+      <label class="drop" id="drop" tabindex="0">
+        <input type="file" id="file" accept="application/pdf,.pdf" hidden>
+        <span class="drop-sheet s3"></span><span class="drop-sheet s2"></span>
+        <span class="drop-sheet s1">
+          <span class="cutline"><span class="cut-scissor"><svg><use href="#i-scissors"/></svg></span></span>
+          <span class="drop-idle">
+            <span class="drop-icon"><svg><use href="#i-upload"/></svg></span>
+            <strong>اسحب الكتاب إلى هنا</strong>
+            <span class="muted">أو <u>اختر ملفاً</u> من جهازك · PDF</span>
+          </span>
+          <span class="drop-busy">
+            <span class="busy-title" id="busyTitle">نقرأ الكتاب…</span>
+            <span class="meter"><span id="meterFill"></span></span>
+            <span class="muted" id="busyText">&nbsp;</span>
+          </span>
+        </span>
+      </label>
+      <p class="drop-error" id="dropError" role="alert"></p>
+    </div>
+  </div>
+
+  <section class="how" id="how" aria-labelledby="howTitle">
+    <h2 class="section-title" id="howTitle">كيف أقسّم الكتاب المدرسي إلى دروس؟ ثلاث خطوات</h2>
+    <ol class="steps">
+      <li><span class="step-n">١</span><h3>ارفع الكتاب</h3><p>اسحب ملف الكتاب بصيغة PDF. كل المعالجة تتم داخل متصفحك، فلا يُرفع الكتاب لأي خادم.</p></li>
+      <li><span class="step-n">٢</span><h3>راجِع الدروس</h3><p>نكتشف بدايات الدروس والوحدات من الفهرس أو من عناوين الصفحات. عدّل الأسماء والصفحات إن احتجت، مع معاينة فورية.</p></li>
+      <li><span class="step-n">٣</span><h3>نزّل الملفات</h3><p>ملف ZIP واحد فيه كل درس بملف PDF مستقل، مرقّم ومسمّى باسم الدرس، بنفس جودة الكتاب الأصلي.</p></li>
+    </ol>
+  </section>
+
+  <section class="who" id="who" aria-labelledby="whoTitle">
+    <h2 class="section-title" id="whoTitle">لمن صُنع مِقَصّ؟</h2>
+    <div class="who-grid">
+      <article class="who-card">
+        <h3>للمعلمين والمعلمات</h3>
+        <p>أرسل لطلابك درس الأسبوع فقط بدل الكتاب كاملاً، عبر واتساب أو تيليجرام أو منصة المدرسة. ملف أصغر يُفتح بسرعة، وطلاب يعرفون بالضبط ما المطلوب منهم.</p>
+      </article>
+      <article class="who-card">
+        <h3>للطلاب</h3>
+        <p>افتح درس اليوم مباشرة على الجوال بدون التمرير بين عشرات الصفحات، ونظّم ملفات المراجعة قبل الامتحان درساً درساً.</p>
+      </article>
+      <article class="who-card">
+        <h3>للمدارس وأولياء الأمور</h3>
+        <p>جهّز مكتبة دروس مرتّبة لكل صف ومادة، وشاركها على منصات التعلّم عن بُعد أو اطبع الدرس المطلوب فقط.</p>
+      </article>
+    </div>
+    <div class="why">
+      <h3>لماذا تقسيم الكتاب المدرسي إلى ملفات؟</h3>
+      <p>الكتب المدرسية بصيغة PDF تكون غالباً ملفاً واحداً كبيراً بمئات الصفحات، يصعب إرساله أو فتحه على الجوال. تقسيم الكتاب إلى دروس يجعل كل ملف صغيراً وسهل المشاركة، ويوفّر وقت المعلم والطالب. ومع مِقَصّ لا تحتاج لتحديد الصفحات يدوياً في برامج تقسيم PDF العامة؛ فالأداة تقرأ عناوين الدروس والوحدات وتسمّي كل ملف باسم درسه، سواء كان الكتاب عربياً أو إنجليزياً، لأي مادة أو صف أو منهاج.</p>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faqTitle">
+    <h2 class="section-title" id="faqTitle">أسئلة شائعة</h2>
+    <details><summary>هل أداة مِقَصّ مجانية؟</summary><p>نعم، مجانية بالكامل وبدون تسجيل أو حساب، ولا يوجد حد لعدد الكتب.</p></details>
+    <details><summary>هل يُرفع كتابي إلى الإنترنت؟</summary><p>لا. الملف يُقرأ ويُقسَّم داخل متصفحك فقط، ولا يُرسَل لأي خادم. نحسب فقط عدد الزيارات وعدد مرات التقسيم بشكل مجهول، بدون أي معلومات عن الكتاب أو عنك.</p></details>
+    <details><summary>كيف أقسّم الكتاب المدرسي PDF إلى دروس؟</summary><p>اسحب ملف الكتاب إلى الصفحة، فيكتشف مِقَصّ بدايات الدروس والوحدات تلقائياً. راجع القائمة وعدّل ما تحتاج، ثم اضغط «قُصّ ونزّل» لتحصل على ملف ZIP فيه كل درس بملف PDF مستقل. وإذا احتجت درساً واحداً فقط، اضغط «نزّل» بجانبه لتحصل عليه ملف PDF مباشرة.</p></details>
+    <details><summary>هل تعمل الأداة على الجوال؟</summary><p>نعم، تعمل على متصفح الجوال والحاسوب، لكن الكتب الكبيرة جداً تكون أسرع على الحاسوب.</p></details>
+    <details><summary>ماذا لو كان الكتاب صوراً ممسوحة (سكانر)؟</summary><p>لن نتمكن من قراءة العناوين تلقائياً، لكن يمكنك تحديد بدايات الدروس يدوياً بسهولة من خلال معاينة الصفحات.</p></details>
+    <details><summary>الاكتشاف أخطأ في درس، ماذا أفعل؟</summary><p>اضغط على الدرس، وتنقّل في المعاينة حتى صفحة بدايته الصحيحة، ثم اضغط «يبدأ الدرس هنا».</p></details>
+    <details><summary>هل يدعم الكتب الإنجليزية؟</summary><p>نعم، يتعرّف على Lesson وUnit وChapter، ويستفيد من الفهرس الجانبي (Bookmarks) إن وُجد.</p></details>
+    <details><summary>هل يغيّر التقسيم جودة صفحات الكتاب؟</summary><p>لا. تُنسخ الصفحات كما هي بدون ضغط أو إعادة تصوير، فتبقى الصور والنصوص بنفس الجودة الأصلية.</p></details>
+  </section>
+</section>
+
+<!-- ============ STAGE 2: REVIEW ============ -->
+<section class="stage stage-review">
+  <div class="review-head">
+    <div class="book-meta">
+      <span class="book-ico"><svg><use href="#i-scissors"/></svg></span>
+      <div>
+        <h2 id="bookTitle">—</h2>
+        <p class="muted" id="bookStats"></p>
+      </div>
+    </div>
+    <div class="head-actions">
+      <button class="btn ghost" id="newFile"><svg><use href="#i-upload"/></svg> كتاب آخر</button>
+      <button class="btn primary" id="splitBtn"><svg><use href="#i-scissors"/></svg> قُصّ ونزّل</button>
+    </div>
+  </div>
+
+  <div class="notice" id="notice"></div>
+
+  <div class="strip-wrap">
+    <div class="strip" id="strip" aria-label="خريطة الكتاب"></div>
+    <div class="strip-scale"><span>ص ١</span><span id="stripEnd"></span></div>
+  </div>
+
+  <details class="advanced" id="advanced">
+    <summary><svg><use href="#i-gear"/></svg> خيارات الاكتشاف <svg class="chev"><use href="#i-chev"/></svg></summary>
+    <div class="adv-grid">
+      <div class="field">
+        <span class="field-label">المصدر</span>
+        <div class="seg" role="radiogroup">
+          <label><input type="radio" name="mode" value="auto" checked><span>تلقائي</span></label>
+          <label><input type="radio" name="mode" value="outline"><span>الفهرس الجانبي</span></label>
+          <label><input type="radio" name="mode" value="text"><span>العناوين</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <span class="field-label">قسّم حسب</span>
+        <div class="chips">
+          <label><input type="checkbox" class="kind" value="lesson" checked><span>الدروس</span></label>
+          <label><input type="checkbox" class="kind" value="unit"><span>الوحدات</span></label>
+          <label><input type="checkbox" class="kind" value="chapter"><span>الفصول</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <span class="field-label">مستوى الفهرس الجانبي</span>
+        <select id="outlineLevel"></select>
+      </div>
+      <div class="field">
+        <span class="field-label">كلمة تبدأ بها الدروس <small>(اختياري)</small></span>
+        <input type="text" id="customKw" placeholder="مثلاً: موضوع، Topic">
+      </div>
+      <label class="toggle"><input type="checkbox" id="includeIntro" checked><span></span> الصفحات قبل أول درس كملف «مقدمة»</label>
+      <button class="btn ghost small" id="redetect">إعادة الاكتشاف</button>
+    </div>
+  </details>
+
+  <div class="workspace">
+    <div class="list-col">
+      <ol class="lessons" id="lessons"></ol>
+      <button class="add-row" id="addRow"><svg><use href="#i-plus"/></svg> أضف درساً</button>
+      <div class="split-end">
+        <p>انتهيت من المراجعة؟ <span class="muted" id="splitCount"></span></p>
+        <button class="btn primary" id="splitBtn2"><svg><use href="#i-scissors"/></svg> قُصّ ونزّل</button>
+      </div>
+    </div>
+
+    <aside class="viewer">
+      <div class="viewer-card">
+        <div class="viewer-top">
+          <span class="viewer-tag" id="viewerTag">معاينة</span>
+          <div class="pager">
+            <button class="icon-btn" id="pgPrev" aria-label="الصفحة السابقة"><svg><use href="#i-chev"/></svg></button>
+            <span class="pg"><input type="number" id="pgInput" min="1" value="1"> / <span id="pgTotal">1</span></span>
+            <button class="icon-btn" id="pgNext" aria-label="الصفحة التالية"><svg style="transform:scaleX(-1)"><use href="#i-chev"/></svg></button>
+          </div>
+        </div>
+        <div class="canvas-box"><canvas id="pgCanvas"></canvas><div class="canvas-hint" id="canvasHint"></div></div>
+        <div class="viewer-actions">
+          <button class="btn ink small" id="startHere" disabled>يبدأ الدرس المحدد هنا</button>
+          <button class="btn ghost small" id="newHere"><svg><use href="#i-plus"/></svg> درس جديد من هنا</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ CUTTING / DONE OVERLAY ============ -->
+<div class="overlay" id="overlay" hidden>
+  <div class="overlay-card">
+    <div class="cut-anim"><span class="dash"></span><span class="snip"><svg><use href="#i-scissors"/></svg></span></div>
+    <h3 id="ovTitle">نقصّ الدروس…</h3>
+    <p class="muted" id="ovText"></p>
+    <div class="ov-done">
+      <a class="btn primary" id="ovDownload"><svg><use href="#i-download"/></svg> تنزيل مرة أخرى</a>
+      <button class="btn ghost" id="ovClose">رجوع للمراجعة</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="foot">
+  <span>مِقَصّ · أداة مجانية لتقسيم الكتب المدرسية PDF إلى دروس، صُنعت للطلاب والمعلمين</span>
+  <span class="muted"><svg><use href="#i-lock"/></svg> لا نحفظ ملفاتك، كل شيء يحدث على جهازك.</span>
+</footer>
+</body>
+</html>
